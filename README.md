@@ -4,7 +4,7 @@ I wanted to play with the electrum API. So this is a little rust program that po
 
 Feel free to change this line:
 ```rust
-    let client = Client::new("tcp://kirsche.emzy.de:50001")?;
+    let client = Client::new("tcp://YOUR ELECTRUM SERVER")?;
 ```
 to point at your electrum server. Change the next line for the address you want to examine. Maybe I'll make it a CLI argument. Maybe not. This is a *very* low-effort block of hacks for me. PRs welcome!
 

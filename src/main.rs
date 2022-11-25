@@ -3,8 +3,8 @@ use bitcoin::Address;
 use electrum_client::{Client, ElectrumApi};
 
 fn main() -> Result<()> {
-    let client = Client::new("tcp://kirsche.emzy.de:50001")?;
-    let addr = "bc1qxhmdufsvnuaaaer4ynz88fspdsxq2h9e9cetdj";
+    let client = Client::new("tcp://YOUR ELECTRUM SERVER")?;
+    let addr = "YOUR ADDRESS HERE";
 
     let address: Address = addr.parse()?;
     println!("fetching history for {}", addr.to_string());
