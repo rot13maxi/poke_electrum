@@ -8,7 +8,7 @@ fn main() -> Result<()> {
 
     let address: Address = addr.parse()?;
     println!("fetching history for {}", addr.to_string());
-    println!("height, direction, amount sent/received");
+    println!("tx-id, height, direction, amount sent/received");
     let history = client.script_get_history(&address.script_pubkey())?;
     history.iter().for_each(|ghr| {
         let height = ghr.height;
@@ -20,7 +20,7 @@ fn main() -> Result<()> {
             true => tx.output.iter().find(|item| item.script_pubkey == address.script_pubkey()).unwrap().value,
             false =>  tx.output.iter().fold(0 as u64, |x, y| x + y.value)
         };
-        println!("{}, {}, {}", height, if inbound {"receive"} else {"send"}, amount);
+        println!("{}, {}, {}, {}", &ghr.tx_hash, height, if inbound {"receive"} else {"send"}, amount);
     });
     Ok(())
 }
