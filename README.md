@@ -2,12 +2,6 @@
 
 I wanted to play with the electrum API. So this is a little rust program that pokes an electrum server and gets history for an address.
 
-Feel free to change this line:
-```rust
-    let client = Client::new("tcp://YOUR ELECTRUM SERVER")?;
-```
-to point at your electrum server. Change the next line for the address you want to examine. Maybe I'll make it a CLI argument. Maybe not. This is a *very* low-effort block of hacks for me. PRs welcome!
-
-Once you have those two values dialed in, just do `cargo run` and it'll compile and run.
-
 If you don't have `cargo`, go install rustup and follow the directions. 
+
+Do `cargo build --release` to build it. Then do `./target/release/poke_electrum [your electrum server IP/hostname and port] [the address you want to lookup]`. For example, if your electrum server is at 192.168.1.50, you can do `./target/release/poke_electrum 192.168.1.50:50001 bc1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` to look up the history for `bc1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` with your electrum server
